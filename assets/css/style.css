@@ -22088,3 +22088,16 @@ border-bottom: 2px dotted black;
     height: 70px !important; 
   }
 }
+@media screen and (max-width: 578px){
+  .bg-banner{
+  padding: 20rem 0rem 0rem 0rem;
+  background-image: url(../../image/banner/Portrait.gif);
+  background-size: cover;
+  background-position:   center;
+}
+.content_text p{
+  padding: 10px;
+ background-color: #000000bd;
+        color: #ffffff !important;
+}
+}
