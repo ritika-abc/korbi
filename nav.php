@@ -36,18 +36,7 @@ if (isset($_SESSION["email"])) {
                     <div class="col-6">
                         <div class="header-top-left">
                             <ul class="dropdown-wrap text-matterhorn">
-                                <!-- <li class="dropdown">
-                                        <button class="btn btn-link dropdown-toggle ht-btn" type="button"
-                                            id="languageButton" data-bs-toggle="dropdown" aria-label="language"
-                                            aria-expanded="false">
-                                            English
-                                        </button>
-                                        <ul class="dropdown-menu" aria-labelledby="languageButton">
-                                            <li><a class="dropdown-item" href="#">French</a></li>
-                                            <li><a class="dropdown-item" href="#">Italian</a></li>
-                                            <li><a class="dropdown-item" href="#">Spanish</a></li>
-                                        </ul>
-                                    </li> -->
+
                                 <li class="dropdown">
                                     <button class="btn btn-link dropdown-toggle ht-btn" type="button"
                                         id="currencyButton" data-bs-toggle="dropdown" aria-label="currency"
@@ -59,10 +48,7 @@ if (isset($_SESSION["email"])) {
                                         <li><a class="dropdown-item" href="#">ISO</a></li>
                                     </ul>
                                 </li>
-                                <li>
-                                    Call Us
-                                    <a href="tel://3965410">3965410</a>
-                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -81,27 +67,20 @@ if (isset($_SESSION["email"])) {
                     <div class="col-lg-12">
                         <div class="header-middle-wrap position-relative">
 
-                            <a href="index.html" class="header-logo">
+                            <a href="index.php" class="header-logo">
                                 <img src="image/logo/korbi.png" height="80px" width="200px" alt="Header Logo">
                             </a>
 
                             <div class="main-menu d-none d-lg-block">
-                                <nav class="main-nav">
-                                    <ul>
+                                <nav class="main-nav ">
+                                    <ul class="  ">
                                         <li class="drop-holder">
-                                            <a href="index.html">Home
-                                                <i class="pe-7s-angle-down"></i>
+                                            <a href="index.php">Home
+
                                             </a>
-                                            <ul class="drop-menu">
-                                                <li>
-                                                    <a href="index.html">Home One</a>
-                                                </li>
-                                                <li>
-                                                    <a href="index-2.html">Home Two</a>
-                                                </li>
-                                            </ul>
+
                                         </li>
-                                        <li class="megamenu-holder">
+                                        <!-- <li class="megamenu-holder">
                                             <a href="shop.html">Shop
                                                 <i class="pe-7s-angle-down"></i>
                                             </a>
@@ -191,51 +170,25 @@ if (isset($_SESSION["email"])) {
                                                     </div>
                                                 </li>
                                             </ul>
+                                        </li> -->
+                                        <li class="drop-holder">
+                                            <a href="about.php">About Us
+                                            </a>
                                         </li>
                                         <li class="drop-holder">
-                                            <a href="#">Pages
-                                                <i class="pe-7s-angle-down"></i>
+                                            <a href="shop.php">Our Products
                                             </a>
-                                            <ul class="drop-menu">
-                                                <li>
-                                                    <a href="about.html">About</a>
-                                                </li>
-                                                <li>
-                                                    <a href="faq.html">FAQ</a>
-                                                </li>
-                                                <li>
-                                                    <a href="404.html">Error 404</a>
-                                                </li>
-                                                <li class="drop-holder">
-                                                    <a href="#">Multi Dropdown</a>
-                                                    <ul class="drop-menu">
-                                                        <li class="drop-holder">
-                                                            <a href="#">Level 02</a>
-                                                            <ul class="drop-menu">
-                                                                <li>
-                                                                    <a href="#">Level 03</a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="drop-holder">
-                                            <a href="blog.html">Blog
-                                                <i class="pe-7s-angle-down"></i>
-                                            </a>
-                                            <ul class="drop-menu">
-                                                <li>
-                                                    <a href="blog-listview.html">Blog List View</a>
-                                                </li>
-                                                <li>
-                                                    <a href="blog-detail.html">Blog Detail</a>
-                                                </li>
-                                            </ul>
                                         </li>
                                         <li>
-                                            <a href="contact.html">Contact</a>
+                                            <a href="contact.php">Contact</a>
+                                        </li>
+                                        <li style="    align-self: center;">
+                                            <ul class="quantity-with-btn  ">
+                                                <li class="affiliate-btn-wrap">
+                                                    <a class="btn btn-custom-size lg-size text-white btn-primary" href="product.php">Buy
+                                                        Now</a>
+                                                </li>
+                                            </ul>
                                         </li>
                                     </ul>
                                 </nav>
@@ -251,29 +204,20 @@ if (isset($_SESSION["email"])) {
                                         <ul class="dropdown-menu right-side" aria-labelledby="settingButton">
                                             <li><a class="dropdown-item text-capitalize" href="#"><?php echo $name ?></a></li>
                                             <li><a class="dropdown-item" href="my-account.html">My account</a></li>
-                                            <li><a class="dropdown-item" href="login-register.html">Login |
+                                            <li><a class="dropdown-item" href="login.php">Login |
                                                     Register</a></li>
                                         </ul>
                                     </li>
-                                    <li>
-                                        <a href="#exampleModal" class="search-btn bt" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal">
-                                            <i class="pe-7s-search"></i>
-                                        </a>
-                                    </li>
-                                    <li class="d-none d-lg-block">
-                                        <a href="wishlist.html">
-                                            <i class="pe-7s-like"></i>
-                                        </a>
-                                    </li>
-                                    <li class="minicart-wrap me-3 me-lg-0">
+
+
+                                    <!-- <li class="minicart-wrap me-3 me-lg-0">
                                         <a href="#miniCart" class="minicart-btn toolbar-btn">
                                             <i class="pe-7s-shopbag"></i>
                                             <span class="quantity">5</span>
                                         </a>
-                                    </li>
+                                    </li> -->
                                     <li class="mobile-menu_wrap d-block d-lg-none">
-                                        <a href="#mobileMenu" class="mobile-menu_btn toolbar-btn pl-0">
+                                        <a data-bs-toggle="offcanvas" href="#offcanvasExample" class="mobile-menu_btn toolbar-btn pl-0">
                                             <i class="pe-7s-menu"></i>
                                         </a>
                                     </li>
@@ -284,6 +228,268 @@ if (isset($_SESSION["email"])) {
                 </div>
             </div>
         </div>
+
+
+        <!-- <div class="mobile-menu_wrapper  " id="mobileMenu">
+            <div class="tromic-offcanvas-body">
+                <div class="inner-body">
+                    <div class="tromic-offcanvas-top">
+                        <a href="#" data-bs-dismiss="offcanvas" class="button-close"><i class="pe-7s-close"></i></a>
+                    </div>
+                    <div class="offcanvas-user-info text-center px-6 pb-5">
+                        <div class=" text-silver">
+                            <p class="shipping mb-0">Free delivery on order over <span class="text-primary">$200</span></p>
+                        </div>
+                        <ul class="dropdown-wrap justify-content-center text-silver">
+                            <li class="dropdown dropup">
+                                <button class="btn btn-link dropdown-toggle ht-btn" type="button" id="languageButtonTwo" data-bs-toggle="dropdown" aria-expanded="false">
+                                    English
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="languageButtonTwo">
+                                    <li><a class="dropdown-item" href="#">French</a></li>
+                                    <li><a class="dropdown-item" href="#">Italian</a></li>
+                                    <li><a class="dropdown-item" href="#">Spanish</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown dropup">
+                                <button class="btn btn-link dropdown-toggle ht-btn usd-dropdown" type="button" id="currencyButtonTwo" data-bs-toggle="dropdown" aria-expanded="false">
+                                    USD
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="currencyButtonTwo">
+                                    <li><a class="dropdown-item" href="#">GBP</a></li>
+                                    <li><a class="dropdown-item" href="#">ISO</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown dropup">
+                                <button class="btn btn-link dropdown-toggle ht-btn p-0" type="button" id="settingButtonTwo" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="pe-7s-users"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="settingButtonTwo">
+                                    <li><a class="dropdown-item" href="my-account.html">My account</a></li>
+                                    <li><a class="dropdown-item" href="login-register.html">Login | Register</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="wishlist.html">
+                                    <i class="pe-7s-like"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="offcanvas-menu_area">
+                        <nav class="offcanvas-navigation">
+                            <ul class="mobile-menu">
+                                <li class="menu-item-has-children">
+                                    <a href="#">
+                                        <span class="mm-text">Home
+                                            <i class="pe-7s-angle-down"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="sub-menu" style="display: none;">
+                                        <li>
+                                            <a href="index.html">
+                                                <span class="mm-text">Home One</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="index-2.html">
+                                                <span class="mm-text">Home Two</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="about.html">
+                                        <span class="mm-text">About Us</span>
+                                    </a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="#">
+                                        <span class="mm-text">Shop
+                                            <i class="pe-7s-angle-down"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="sub-menu" style="display: none;">
+                                        <li class="menu-item-has-children">
+                                            <a href="#">
+                                                <span class="mm-text">Shop Layout
+                                                    <i class="pe-7s-angle-down"></i>
+                                                </span>
+                                            </a>
+                                            <ul class="sub-menu" style="display: none;">
+                                                <li>
+                                                    <a href="shop.html">
+                                                        <span class="mm-text">Shop Default</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-grid-fullwidth.html">
+                                                        <span class="mm-text">Shop Grid Fullwidth</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-right-sidebar.html">
+                                                        <span class="mm-text">Shop Right Sidebar</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-list-fullwidth.html">
+                                                        <span class="mm-text">Shop List Fullwidth</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-list-left-sidebar.html">
+                                                        <span class="mm-text">Shop List Left Sidebar</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-list-right-sidebar.html">
+                                                        <span class="mm-text">Shop List Right Sidebar</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="#">
+                                                <span class="mm-text">Product Style
+                                                    <i class="pe-7s-angle-down"></i>
+                                                </span>
+                                            </a>
+                                            <ul class="sub-menu" style="display: none;">
+                                                <li>
+                                                    <a href="single-product.html">
+                                                        <span class="mm-text">Single Product Default</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="single-product-group.html">
+                                                        <span class="mm-text">Single Product Group</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="single-product-variable.html">
+                                                        <span class="mm-text">Single Product Variable</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="single-product-sale.html">
+                                                        <span class="mm-text">Single Product Sale</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="single-product-sticky.html">
+                                                        <span class="mm-text">Single Product Sticky</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="single-product-affiliate.html">
+                                                        <span class="mm-text">Single Product Affiliate</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="#">
+                                                <span class="mm-text">Product Related
+                                                    <i class="pe-7s-angle-down"></i>
+                                                </span>
+                                            </a>
+                                            <ul class="sub-menu" style="display: none;">
+                                                <li>
+                                                    <a href="my-account.html">
+                                                        <span class="mm-text">My Account</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="login-register.html">
+                                                        <span class="mm-text">Login | Register</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="cart.html">
+                                                        <span class="mm-text">Shopping Cart</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="wishlist.html">
+                                                        <span class="mm-text">Wishlist</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="compare.html">
+                                                        <span class="mm-text">Compare</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="checkout.html">
+                                                        <span class="mm-text">Checkout</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="#">
+                                        <span class="mm-text">Pages
+                                            <i class="pe-7s-angle-down"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="sub-menu" style="display: none;">
+                                        <li>
+                                            <a href="faq.html">
+                                                <span class="mm-text">Frequently Questions</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="404.html">
+                                                <span class="mm-text">Error 404</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="#">
+                                        <span class="mm-text">Blog
+                                            <i class="pe-7s-angle-down"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="sub-menu" style="display: none;">
+                                        <li class="menu-item-has-children">
+                                            <a href="#">
+                                                <span class="mm-text">Blog Holder
+                                                    <i class="pe-7s-angle-down"></i>
+                                                </span>
+                                            </a>
+                                            <ul class="sub-menu" style="display: none;">
+                                                <li>
+                                                    <a href="blog.html">
+                                                        <span class="mm-text">Blog Default</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="blog-listview.html">Blog List View</a>
+                                                </li>
+                                                <li>
+                                                    <a href="blog-detail.html">Blog Detail</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="contact.html">
+                                        <span class="mm-text">Contact</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div class="mobile-menu_wrapper" id="mobileMenu">
             <div class="tromic-offcanvas-body">
                 <div class="inner-body">
@@ -668,6 +874,45 @@ if (isset($_SESSION["email"])) {
                 </div>
             </div>
         </div>
-        <div class="global-overlay"></div>
+        <div class="global-overlay"></div> -->
     </header>
     <!-- Main Header Area End Here -->
+
+
+
+
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <img src="image/logo/korbi.png" height="80px" width="200px" alt="Header Logo">
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a href="" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="" class="nav-link">Home</a></li>
+
+            </ul>
+            <ul>
+                <li class="dropdown  ">
+                    <button class="btn btn-link dropdown-toggle   p-0" type="button"
+                        id="settingButton" data-bs-toggle="dropdown" aria-label="setting"
+                        aria-expanded="false">
+                        <i class="pe-7s-user"></i>
+                    </button>
+                    <ul class="dropdown-menu  " aria-labelledby="settingButton">
+                        <li><a class="dropdown-item text-capitalize" href="#"><?php echo $name ?></a></li>
+                        <li><a class="dropdown-item" href="my-account.html">My account</a></li>
+                        <li><a class="dropdown-item" href="login.php">Login |
+                                Register</a></li>
+                    </ul>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>

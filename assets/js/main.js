@@ -240,6 +240,7 @@
 		var mySwiper = new Swiper('.blog-slider', {
 			slidesPerView: 3,
 			spaceBetween: 30,
+			bav:true,
 			loop: true,
 			navigation: {
 				nextEl: '.swiper-button-next',
@@ -253,7 +254,7 @@
 				  slidesPerView: 2,
 				},
 				992: {
-				  slidesPerView: 3,
+				  slidesPerView: 1,
 				}
 			}
 		});

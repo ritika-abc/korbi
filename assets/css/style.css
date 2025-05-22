@@ -200,9 +200,10 @@ h6, .h6 {
   font-size: 1rem;
 }
 
-p {
+p ,  li {
   margin-top: 0;
   margin-bottom: 1rem;
+  color: #54595f !important;
 }
 
 abbr[title] {
@@ -22101,3 +22102,29 @@ border-bottom: 2px dotted black;
         color: #ffffff !important;
 }
 }
+
+ .single-product-slider .swiper-slide{
+  height: 500px;
+  width: 100%;
+  display: flex;
+align-items: center;
+justify-content: center;
+ 
+  overflow: hidden;
+ }
+ .single-product-slider .swiper-slide img{
+height: auto;
+width: 100%;
+
+ }
+ .single-product-thumbs img{
+  height:100px;
+  object-fit: cover;
+ }
+
+
+ @media screen and (min-width:768px) {
+  .blog-item {
+    height: 500px;
+  }
+ }

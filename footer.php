@@ -9,28 +9,28 @@
                     <div class="col-lg-6 my-4 align-self-center">
                         <div class="bg-white rounded form_box px-3 py-2">
                             <div class="row my-5">
-                                <div class="col-lg-3 mb-4">
-                                    <label for="" class="fs-5">Name :</label>
+                                <div class="col-3 mb-4">
+                                    <label for="" class="fs-5">Name:</label>
                                 </div>
-                                <div class="col-lg-9 mb-4"><input type="text"></div>
+                                <div class="col-9 mb-4"><input type="text"></div>
                             </div>
                             <div class="row my-5">
-                                <div class="col-lg-3 mb-4">
-                                    <label for="" class="fs-5">Email :</label>
+                                <div class="col-3 mb-4">
+                                    <label for="" class="fs-5">Email:</label>
                                 </div>
-                                <div class="col-lg-9 mb-4"><input type="email"></div>
+                                <div class="col-9 mb-4"><input type="email"></div>
                             </div>
                             <div class="row my-5">
-                                <div class="col-lg-3 mb-4">
-                                    <label for="" class="fs-5">Contact :</label>
+                                <div class="col-3 mb-4">
+                                    <label for="" class="fs-5">Contact:</label>
                                 </div>
-                                <div class="col-lg-9 mb-4"><input type="number"></div>
+                                <div class="col-9 mb-4"><input type="number"></div>
                             </div>
                             <div class="row my-5">
-                                <div class="col-lg-3 mb-4">
-                                    <label for="" class="fs-5">Your Query :</label>
+                                <div class="col-3 mb-4">
+                                    <label for="" class="fs-5">Your Query:</label>
                                 </div>
-                                <div class="col-lg-9 mb-4"><input type="text"></div>
+                                <div class="col-9 mb-4"><input type="text"></div>
                             </div>
                             <div class="row my-5">
                                 <div class="col-12">
