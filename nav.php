@@ -206,6 +206,7 @@ if (isset($_SESSION["email"])) {
                                             <li><a class="dropdown-item" href="my-account.html">My account</a></li>
                                             <li><a class="dropdown-item" href="login.php">Login |
                                                     Register</a></li>
+                                            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                                         </ul>
                                     </li>
 

@@ -1,29 +1,82 @@
 <?php
-session_start();
-
-
 include "site_connection.php";
-
 if (isset($_POST['submit'])) {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    // Get form data
+    $name = test_input($_POST['name']);
+    $password = test_input($_POST['password']);
+    $email = test_input($_POST['email']);
+    $mobile_number = test_input($_POST['mobile_number']);
 
+    // Server-side validation
+    $errors = [];
 
-    $result = mysqli_query($con, "select * 
-     from user_register WHERE email='$email' and password='$password'   ");
-    $user_matched = mysqli_num_rows($result);
-    if ($user_matched > 0) {
-        $_SESSION['password'] = $password;
-        $_SESSION['email'] = $email;
-        $_SESSION['id'] = $id;
+    // Check if name is empty
+    if (empty($name)) {
+        $errors[] = "Name is required.";
+    }
 
+    // Check if password is empty
+    if (empty($password)) {
+        $errors[] = "Password is required.";
+    }
 
-        header("location:index.php");
+    // Check if email is empty or invalid
+    if (empty($email)) {
+        $errors[] = "Email is required.";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "Invalid email format.";
+    }
+
+    // Check if mobile number is empty or invalid
+    if (empty($mobile_number)) {
+        $errors[] = "Mobile number is required.";
+    } elseif (!preg_match("/^[0-9]{10}$/", $mobile_number)) {
+        $errors[] = "Mobile number must be 10 digits.";
+    }
+
+    // If there are any errors, show them and stop the execution
+    if (!empty($errors)) {
+        foreach ($errors as $error) {
+            echo $error . "<br>";
+        }
     } else {
-        echo "not matched !!!!";
+        // Check if the user already exists in the database
+        $sql = "SELECT * FROM user_register WHERE name='$name' AND password='$password' AND email='$email'";
+        $emailresult = mysqli_query($con, $sql);
+        $user_matched = mysqli_num_rows($emailresult);
+
+        if ($user_matched > 0) {
+            echo "You have already registered!";
+        } else {
+            // Insert new user into the database
+            $insrt = mysqli_query($con, "INSERT INTO user_register (name, password, email, mobile_number) VALUES ('$name', '$password', '$email', '$mobile_number')");
+            if ($insrt) {
+                header("Location: login.php");
+                exit();
+            } else {
+                echo "There was an error registering your account.";
+            }
+        }
     }
 }
+
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
 ?>
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -65,10 +118,10 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-     
+
     <div class="main-wrapper">
 
-         
+
         <!-- Begin Main Content Area -->
         <main class="main-content">
 
@@ -76,85 +129,79 @@ if (isset($_POST['submit'])) {
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-6">
-                            <form method="post">
+                            <form method="post" onsubmit="return validateForm()">
                                 <div class="login-form" style="border-left: 3px solid #ee3231;">
-                                  <div class="text-center">
-                                     <a href="/"> <img src="image/logo/korbi.png" height="70px" width="200px" alt="">  </a>
-                                  </div>
-                                    <h4 class="login-title">Login</h4>
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <label>Email Address*</label>
-                                            <input type="email" name="email" placeholder="Email Address">
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <label>Password</label>
-                                            <input type="password" name="password" placeholder="Password">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="check-box">
-                                                <input type="checkbox" id="remember_me">
-                                                <label for="remember_me">Remember me</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 pt-1 mt-md-0">
-                                            <div class="forgotton-password_info">
-                                                <a href="register.php"> Create an account.</a>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 pt-5">
-                                           <ul class="quantity-with-btn  ">
-                                                <li class="affiliate-btn-wrap">
-                                                    <button type="submit" name="submit" class="btn btn-custom-size lg-size text-white btn-primary" href="product.php">Login
-                                                        Now</button>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                    <div class="text-center">
+                                        <a href="/"> <img src="image/logo/korbi.png" height="70px" width="200px" alt=""> </a>
                                     </div>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- <div class="col-lg-6 pt-10 pt-lg-0">
-                            <form action="#">
-                                <div class="login-form">
                                     <h4 class="login-title">Register</h4>
                                     <div class="row">
                                         <div class="col-md-6 col-12">
                                             <label>First Name</label>
-                                            <input type="text" placeholder="First Name">
+                                            <input type="text" id="name" name="name" placeholder="First Name">
                                         </div>
                                         <div class="col-md-6 col-12">
-                                            <label>Last Name</label>
-                                            <input type="text" placeholder="Last Name">
+                                            <label>Phone</label>
+                                            <input type="number" id="mobile_number" name="mobile_number" placeholder="Phone">
                                         </div>
                                         <div class="col-md-12">
                                             <label>Email Address*</label>
-                                            <input type="email" placeholder="Email Address">
+                                            <input type="email" id="email" name="email" placeholder="Email Address">
                                         </div>
                                         <div class="col-md-6">
                                             <label>Password</label>
-                                            <input type="password" placeholder="Password">
+                                            <input type="password" id="password" name="password" placeholder="Password">
                                         </div>
                                         <div class="col-md-6">
                                             <label>Confirm Password</label>
                                             <input type="password" placeholder="Confirm Password">
                                         </div>
                                         <div class="col-12">
-                                            <button class="btn btn-custom-size lg-size btn-primary">Register</button>
+                                            <button class="btn btn-custom-size lg-size btn-primary" name="submit" type="submit">Register</button>
                                         </div>
                                     </div>
                                 </div>
                             </form>
-                        </div> -->
+                        </div>
+
                     </div>
                 </div>
             </div>
         </main>
         <!-- Main Content Area End Here -->
 
-      
-    </div>
 
+    </div>
+    <script>
+        function validateForm() {
+            var name = document.getElementById('name').value;
+            var password = document.getElementById('password').value;
+            var email = document.getElementById('email').value;
+            var mobile_number = document.getElementById('mobile_number').value;
+
+            // Check if all fields are filled
+            if (name == "" || password == "" || email == "" || mobile_number == "") {
+                alert("All fields are required!");
+                return false;
+            }
+
+            // Check if mobile number is a valid number
+            var phoneRegex = /^[0-9]{10}$/;
+            if (!phoneRegex.test(mobile_number)) {
+                alert("Please enter a valid mobile number (10 digits).");
+                return false;
+            }
+
+            // Check if email format is correct
+            var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
     <!-- Global Vendor, plugins JS -->
 
     <!-- JS Files

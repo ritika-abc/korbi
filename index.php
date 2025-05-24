@@ -44,9 +44,9 @@
     ?>
     <section>
         <section class=" ">
-            <div class="bg-banner">
-                <div class="container-fluid">
-                    <div class="row">
+            <div class="bg-banner  position-relative h-100  ">
+                <div class="container-fluid ">
+                    <div class="row ">
                         <div class="col-lg-7">
                             <div class="content_text">
                                 <h3 class="display-5 fw-bold text-white d-none d-sm-block">LIGHT UP YOUR PATH WITH
@@ -60,13 +60,14 @@
 
                                 <ul class="quantity-with-btn pb-7">
                                     <li class="affiliate-btn-wrap">
-                                        <a class="btn btn-custom-size lg-size mt-3 btn-primary" href="product.php">Buy Now</a>
+                                        <a class="btn btn-custom-size lg-size mt-3 btn-primary" href="product">Buy Now</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
+                <h4 class="position-absolute  d-block d-sm-none  translate-middle w-75  display-6 start-50 text-white text-center fw-bold" style="top: 20%;">LIGHT UP YOUR PATH WITH KORBI Japanese LED Bulbs</h4>
             </div>
         </section>
         <!-- <section>
@@ -214,7 +215,6 @@
             </div>
         </div>
     </section>
-
     <section class="d-none d-lg-block">
         <div class="round-bg">
             <h4 class="   text-center text-dark display-3 fw-bold">Understanding Brightness:</h4>
@@ -263,7 +263,7 @@
         </div>
     </section>
     <section class="d-block d-lg-none">
-        <div class="round-bg">
+        <div class="sm-bg">
             <h4 class="   text-center text-dark display-6 fw-bold">Understanding Brightness:</h4>
             <div class="container">
                 <div class="row justify-content-center">
@@ -279,12 +279,12 @@
                                                     <div class="blog-item bg-white rounded">
                                                         <div class="row justify-content-center">
                                                             <div class="col-4 text-center align-self-center  col-md-12   text-center">
-                                                                 <div class="row justify-content-center">
+                                                                <div class="row justify-content-center">
                                                                     <div class="col-md-6 align-self-center text-center">
                                                                         <img src="image/banner/wattege.png" height="auto" width="100%" alt="">
                                                                     </div>
                                                                 </div>
-                                                           
+
                                                                 <h4 class="fw-bold text-danger">Wattage</h4>
                                                             </div>
                                                             <div class="col-8  col-md-12  ">
@@ -311,15 +311,15 @@
                                                     </div>
                                                 </div>
                                                 <div class="swiper-slide">
-                                                    <div class="blog-item bg-white rounded" >
+                                                    <div class="blog-item bg-white rounded">
                                                         <div class="row justify-content-center">
                                                             <div class="col-4 align-self-center  col-md-12   text-center">
-                                                                  <div class="row justify-content-center">
+                                                                <div class="row justify-content-center">
                                                                     <div class="col-md-6 align-self-center text-center">
                                                                         <img src="image/banner/luments.png" height="auto" width="100%" alt="">
                                                                     </div>
                                                                 </div>
-                                                                
+
                                                                 <h4 class="fw-bold text-danger">Lumens</h4>
                                                             </div>
                                                             <div class="col-8  col-md-12  ">

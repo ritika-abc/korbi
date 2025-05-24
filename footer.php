@@ -293,7 +293,9 @@
     <!-- JS Files
     ============================================ -->
     <!-- Global Vendor, plugins JS -->
-
+  <span class="fixed-bottom pb-3 px-3">
+        <a href=""><img src="wp.png" alt=""></a>
+    </span>
     <!-- Vendor JS -->
     <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
     <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
