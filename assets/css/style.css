@@ -19696,6 +19696,24 @@ blockquote .user-name:before {
   .nice-select.wide {
     width: 100% !important;
 }
+.single-product-slider .swiper-slide {
+    height: 300px !important;
+    width: 100%;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.single-product-slider .swiper-slide {
+    height: 300px;
+    width: 100%;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
 }
 
 /*----------------------------------------*/
