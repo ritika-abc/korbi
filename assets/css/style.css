@@ -19693,6 +19693,9 @@ blockquote .user-name:before {
     border-right: 1px solid #e8e8e8;
     border-bottom: 0;
   }
+  .nice-select.wide {
+    width: 100% !important;
+}
 }
 
 /*----------------------------------------*/
