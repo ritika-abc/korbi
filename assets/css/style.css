@@ -19678,10 +19678,14 @@ blockquote .user-name:before {
   border-bottom: 1px solid #e8e8e8;
   height: 42px;
   line-height: 40px;
-  padding-left: 30px;
-  padding-right: 30px;
-  width: 150px;
-  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 50%;
+  
+  text-align: start;
+}
+.nice-select.wide {
+    width: 50% !important;
 }
 @media (max-width: 479px) {
   .selector-title {
