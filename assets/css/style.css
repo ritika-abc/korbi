@@ -22169,3 +22169,10 @@ width: 100%;
     justify-content: center;
   }
  }
+
+ th{
+  color:black;
+ }
+ td{
+  color: #54595f;
+ }
