@@ -61,11 +61,12 @@ if (isset($_POST['submit'])) {
 }
 
 
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
 }
 ?>
 
@@ -156,7 +157,12 @@ function test_input($data) {
                                             <label>Confirm Password</label>
                                             <input type="password" placeholder="Confirm Password">
                                         </div>
+                                        <div class="col-md-6">
+                                            <label>Solve the Puzzle: <span id="num1">?</span> + <span id="num2">?</span> = ?</label>
+<input type="text" id="puzzleAnswer" placeholder="Your Answer">
+                                        </div>
                                         <div class="col-12">
+                                           
                                             <button class="btn btn-custom-size lg-size btn-primary" name="submit" type="submit">Register</button>
                                         </div>
                                     </div>
@@ -173,61 +179,54 @@ function test_input($data) {
 
     </div>
     <script>
-        function validateForm() {
-            var name = document.getElementById('name').value;
-            var password = document.getElementById('password').value;
-            var email = document.getElementById('email').value;
-            var mobile_number = document.getElementById('mobile_number').value;
+    let a, b;
 
-            // Check if all fields are filled
-            if (name == "" || password == "" || email == "" || mobile_number == "") {
-                alert("All fields are required!");
-                return false;
-            }
+    // Generate random numbers when the page loads
+    window.onload = function () {
+        a = Math.floor(Math.random() * 10) + 1;
+        b = Math.floor(Math.random() * 10) + 1;
+        document.getElementById('num1').textContent = a;
+        document.getElementById('num2').textContent = b;
+    }
 
-            // Check if mobile number is a valid number
-            var phoneRegex = /^[0-9]{10}$/;
-            if (!phoneRegex.test(mobile_number)) {
-                alert("Please enter a valid mobile number (10 digits).");
-                return false;
-            }
+    function validateForm() {
+        var name = document.getElementById('name').value.trim();
+        var password = document.getElementById('password').value.trim();
+        var email = document.getElementById('email').value.trim();
+        var mobile_number = document.getElementById('mobile_number').value.trim();
+        var puzzleAnswer = document.getElementById('puzzleAnswer').value.trim();
 
-            // Check if email format is correct
-            var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-            if (!emailRegex.test(email)) {
-                alert("Please enter a valid email address.");
-                return false;
-            }
-
-            return true;
+        // Check if all fields are filled
+        if (name == "" || password == "" || email == "" || mobile_number == "" || puzzleAnswer == "") {
+            alert("All fields are required!");
+            return false;
         }
-    </script>
-    <!-- Global Vendor, plugins JS -->
 
-    <!-- JS Files
-    ============================================ -->
-    <!-- Global Vendor, plugins JS -->
+        // Check if mobile number is a valid 10-digit number
+        var phoneRegex = /^[0-9]{10}$/;
+        if (!phoneRegex.test(mobile_number)) {
+            alert("Please enter a valid mobile number (10 digits).");
+            return false;
+        }
 
-    <!-- Vendor JS -->
-    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
-    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+        // Check if email format is correct
+        var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        if (!emailRegex.test(email)) {
+            alert("Please enter a valid email address.");
+            return false;
+        }
 
-    <!--Plugins JS-->
-    <script src="assets/js/plugins/wow.min.js"></script>
-    <script src="assets/js/plugins/jquery-ui.min.js"></script>
-    <script src="assets/js/plugins/swiper-bundle.min.js"></script>
-    <script src="assets/js/plugins/jquery.nice-select.js"></script>
-    <script src="assets/js/plugins/parallax.min.js"></script>
-    <script src="assets/js/plugins/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/plugins/tippy.min.js"></script>
-    <script src="assets/js/plugins/ion.rangeSlider.min.js"></script>
-    <script src="assets/js/plugins/mailchimp-ajax.js"></script>
+        // Check puzzle answer
+        if (parseInt(puzzleAnswer) !== (a + b)) {
+            alert("Incorrect puzzle answer. Please try again.");
+            return false;
+        }
 
-    <!--Main JS (Common Activation Codes)-->
-    <script src="assets/js/main.js"></script>
+        return true;
+    }
+</script>
 
-</body>
+ <?php
 
-</html>
+include "footer.php";
+?>

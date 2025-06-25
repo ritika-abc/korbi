@@ -202,7 +202,7 @@ h6, .h6 {
 
 p ,  li {
   margin-top: 0;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
   color: #54595f !important;
 }
 

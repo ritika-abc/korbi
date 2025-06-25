@@ -1,145 +1,197 @@
 <?php include_once 'header.php';
 
-$sql_select_data = "select * from `order` where `status`='Cancelled-By-Client' or `status`='Delivered' or `status` = 'Cancelled-By-Supplier'";
-$data_data = mysqli_query($conn,$sql_select_data);
-$data_count = mysqli_num_rows($data_data);
-
-$limit = 5;
-$page_count = ceil($data_count/$limit);
-
-if (isset($_GET['p_id']))
-{
-  $page_no = $_GET['p_id'];
-}
-else
-{
-  $page_no=1;
-}
-
-$start = ($page_no-1)*$limit;
-
-$sql_select = "select * from `order` where `status`='Cancelled-By-Client' or `status`='Delivered' or `status` = 'Cancelled-By-Supplier' limit $start,$limit";
-$data = mysqli_query($conn,$sql_select);
 
 ?>
 
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>View Past Order Data</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-              <li class="breadcrumb-item active">DataTables</li>
-            </ol>
-          </div>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>View Past Order Data</h1>
         </div>
-      </div><!-- /.container-fluid -->
-    </section>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
+            <li class="breadcrumb-item active">DataTables</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">View Past Orders Data</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">View Past Orders Data</h3>
+            </div>
+
+            <!--  -->
+            <div class="mb-3 mx-3 mt-3">
+              <input type="text" id="search" class="form-control" placeholder="Search ...">
+            </div>
+            <div id="search-results">
+              <!-- AJAX-loaded results will go here -->
+            </div>
+
+            <!-- /.card-header -->
+            <div class="card-body">
+              <?php
+              include "connection.php"; // database configuration
+              /* Calculate Offset Code */
+              $limit = 50;
+              if (isset($_GET['page'])) {
+                $page = $_GET['page'];
+              } else {
+                $page = 1;
+              }
+              $offset = ($page - 1) * $limit;
+              /* select query of user table with offset and limit */
+              $sql = "SELECT * FROM `order` ORDER BY id DESC LIMIT {$offset},{$limit}";
+              $result = mysqli_query($conn, $sql) or die("Query Failed.");
+              if (mysqli_num_rows($result) > 0) {
+              ?>
                 <table id="example2" class="table table-bordered table-hover display_past_order_admin_page_change">
                   <thead>
-                  <tr>
-                    <th>Product ID</th>
-                    <th>Order Date/Time</th>
-                    <th>Name of Product</th>
-                    <th>Number of Items</th>
-                    <th>Image 1 (Main)</th>
-                    <th>Delivery Address</th>
-                    <th>City & Pincode</th>
-                    <th>Status</th>
-                    <th>View More</th>
-                  </tr>
+                    <tr>
+                      <th>S. No</th>
+                      <th>Order Date</th>
+
+                      <th>Client Name</th>
+                      <th>Price</th>
+                      <th>Quantity</th>
+
+                      <th>Country</th>
+                      <th>City & Pincode</th>
+                      <th>Number</th>
+                      <th>Payment</th>
+                      <th>Order Status</th>
+                      <th>Details</th>
+
+                    </tr>
                   </thead>
-                  
-                  <?php while ($row = mysqli_fetch_assoc($data)) { ?>
+                  <tbody>
+                    <?php
+                    $serial = $offset + 1;
+                    while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                      <tr>
+                        <td><?php echo $serial; ?></td>
+                        <td><?php echo $row['created_at']; ?></td>
+                        <td class="text-capitalize"><?php echo $row['user_name']; ?></td>
+                        <td>₹<?php echo $row['price']; ?></td>
+                        <td><?php echo $row['quantity']; ?></td>
 
-                   <tr>
-                    <td><?php echo $row['product_id']; ?></td>
-                    <td><?php echo $row['date_time']; ?></td>
-                    <td><?php echo $row['name']; ?></td>
-                    <td><?php echo $row['num_product']; ?></td>
-                    <td align="center">
-                         <div style="width: 200px; height: 170px;"><img src="image/<?php echo $row['image']; ?>" style="height: 100%; width: 100%; object-fit: cover; object-position: top;"></td></div>
-                    </td>
-                    <td><?php echo $row['address']; ?></td>
-                    <td><?php echo $row['city']; ?>, <?php echo $row['pincode']; ?></td>                    
-                    <td><?php echo $row['status']; ?></td>                    
-                    <td><a href="view-more-past-order.php?v_id=<?php echo $row['id']; ?>">View More</a></td>
-                  </tr>
+                        <td><?php echo $row['country']; ?></td>
+                        <td class="text-capitalize"><?php echo $row['city']; ?>-<?php echo $row['zip']; ?></td>
 
-                  <?php } ?>
+                        <td><?php echo $row['mobile']; ?></td>
+                        <td class="text-capitalize"><?php echo $row['status']; ?></td>
+                        <td><?php
+                            if ($row['oredr_status'] == 'Cancelled-By-Supplier') {
+                              echo "<span class='btn btn-warning'>" . $row['oredr_status'] . "</span>";
+                            } else if ($row['oredr_status'] == 'Delivered') {
+                              echo "<span class='btn btn-success'>" . $row['oredr_status'] . "</span>";
+                            } else {
+                              echo "<span class='btn btn-danger'>" . $row['oredr_status'] . "</span>";
+                            }
 
-                   <tr>
-                    <td colspan="8" align="center">
-                  <?php for ($i=1; $i<=$page_count; $i++) { ?>
-                    <a href="javascript:void(0)" class="btn btn-primary-page 
-                    <?php if(isset($_GET['p_id']))
-                      {
-                        if($_GET['p_id']==$i)
-                        {
-                          echo "btn-primary-page-active";
-                        }
-                        else
-                        {
-                          echo "";
-                        }
-                      }
-                      else
-                      {
-                        if($i==1)
-                        {
-                          echo "btn-primary-page-active";
-                        }
-                      } ?> past_order_admin_page_change " attr_id=<?php echo $i; ?> >
-                    <?php echo $i; ?>
-                    </a>
-                  <?php } ?>   
-                    </td>
-                  </tr>
 
+                            ?></td>
+                        <td><a href="order-detail.php?id=<?php echo $row['id'] ?>" class="btn btn-primary">Details</a></td>
+
+                      </tr>
+                    <?php
+                      $serial++;
+                    } ?>
+                  </tbody>
                 </table>
-              </div>
-              <!-- /.card-body -->
+              <?php
+              } else {
+                echo "<h3>No Results Found.</h3>";
+              }
+              // show pagination
+              $sql1 = "SELECT * FROM `order`";
+              $result1 = mysqli_query($conn, $sql1) or die("Query Failed.");
+
+              if (mysqli_num_rows($result1) > 0) {
+
+                $total_records = mysqli_num_rows($result1);
+
+                $total_page = ceil($total_records / $limit);
+
+                echo '<ul class="pagination ">';
+                if ($page > 1) {
+                  echo '<li class="page-item"><a class="page-link" href="view-all-orders.php?page=' . ($page - 1) . '">Prev</a></li>';
+                }
+                for ($i = 1; $i <= $total_page; $i++) {
+                  if ($i == $page) {
+                    $active = "activebtn";
+                  } else {
+                    $active = " ";
+                  }
+                  echo '<li class="page-item' . $active . '"><a class="page-link"  href="view-all-orders.php?page=' . $i . '">' . $i . '</a></li>';
+                }
+                if ($total_page > $page) {
+                  echo '<li class="page-item"><a class="page-link" href="vview-all-orders.php?page=' . ($page + 1) . '">Next</a></li>';
+                }
+
+                echo '</ul>';
+              }
+              ?>
             </div>
-            <!-- /.card -->
+            <!-- /.card-body -->
           </div>
-          <!-- /.col -->
+          <!-- /.card -->
         </div>
-        <!-- /.row -->
+        <!-- /.col -->
       </div>
-      <!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
 
 
-  <?php include_once 'footer.php'; ?>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<?php include_once 'footer.php'; ?>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
+<script>
+$(document).ready(function() {
+  $('#search').on('keyup', function() {
+    var query = $(this).val();
+    if (query != '') {
+      $.ajax({
+        url: "search-orders.php",
+        method: "POST",
+        data: {query: query},
+        success: function(data) {
+          $('#search-results').html(data);
+          $('.display_past_order_admin_page_change').hide(); // Hide default table
+        }
+      });
+    } else {
+      $('#search-results').html('');
+      $('.display_past_order_admin_page_change').show(); // Show original table again
+    }
+  });
+});
+</script>
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+  <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 

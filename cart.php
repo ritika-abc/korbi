@@ -24,6 +24,8 @@ if (isset($_POST['product_id'])) {
     $product_image = $_POST['product_image'];
     $product_size = $_POST['product_size'];
     $product_color = $_POST['product_color'];
+    $light = $_POST['light'];
+    $holder = $_POST['holder'];
     $quantity = $_POST['quantity'];  // Default quantity is 1 (You can add an input field for quantity if required)
 
     // Check if the product is already in the cart
@@ -36,8 +38,8 @@ if (isset($_POST['product_id'])) {
         mysqli_query($con, $query);
     } else {
         // Product not in cart, insert new product
-        $query = "INSERT INTO cart (product_id, email, name, price, image, size, color , quantity)
-                  VALUES ('$product_id', '$email', '$product_name', '$product_price', '$product_image', '$product_size', '$product_color',  '$quantity')";
+        $query = "INSERT INTO cart (product_id, email, name, price, image, size, color , quantity,holder,light)
+                  VALUES ('$product_id', '$email', '$product_name', '$product_price', '$product_image', '$product_size', '$product_color',  '$quantity','$holder','$light')";
         mysqli_query($con, $query);
     }
 

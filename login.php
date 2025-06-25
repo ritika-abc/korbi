@@ -16,6 +16,7 @@ if (isset($_POST['submit'])) {
         $_SESSION['password'] = $password;
         $_SESSION['email'] = $email;
         $_SESSION['id'] = $id;
+        $_SESSION['name'] = $name;
 
 
         header("location:index.php");
@@ -31,13 +32,10 @@ if (isset($_POST['submit'])) {
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Korbi</title>
-    <meta name="robots" content="index, follow" />
-    <meta name="description"
-        content="Korbi">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
+   <title>KORBI </title>
+ 
+     <!-- Favicon -->
+   <link rel="shortcut icon" type="image/x-icon" href="image/logo/korbi.png" />
 
     <!-- CSS
     ============================================ -->

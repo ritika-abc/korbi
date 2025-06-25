@@ -5,13 +5,10 @@
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Korbi</title>
-    <meta name="robots" content="index, follow" />
-    <meta name="description"
-        content="Korbi">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
+   <title>KORBI </title>
+ 
+     <!-- Favicon -->
+   <link rel="shortcut icon" type="image/x-icon" href="image/logo/korbi.png" />
 
     <!-- CSS
     ============================================ -->
@@ -71,6 +68,8 @@
             <div class="single-product-area section-space-top-100">
                 <form action="cart.php" method="post">
                     <input type="hidden" name="product_id" value="<?php echo $row['id']; ?>"> <!-- Product ID -->
+                    <!-- <input type="hidden" name="holder" value="1"> -->
+
                     <input type="hidden" name="product_name" value="<?php echo $row['name']; ?>"> <!-- Product Name -->
                     <input type="hidden" name="product_price" value="<?php echo $row['price']; ?>"> <!-- Product Price -->
                     <input type="hidden" name="product_image" value="<?php echo $row['image1']; ?>"> <!-- Product Image -->
@@ -137,35 +136,27 @@
                                     <div class="price-box pb-3">
                                         <span class="new-price text-danger">₹<?php echo $row['price'] ?></span>
                                     </div>
-                                    <!-- <div class="rating-box-wrap pb-55">
-                                        <div class="rating-box">
-                                            <ul>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                            </ul>
-                                        </div>
-                                        <div class="review-status ps-4">
-                                            <a href="#">( 5 Customer Review )</a>
-                                        </div>
-                                    </div> -->
+
                                     <div class="selector-wrap color-option">
-                                        <span class="selector-title border-bottom-0">Color</span>
-                                        <select class="nice-select wide border-bottom-0 rounded-0">
-                                            <option value="default">Dark Black With Shadow</option>
-                                            <option value="blue">Blue</option>
-                                            <option value="green">Green</option>
-                                            <option value="red">Red</option>
+                                        <span class="selector-title border-bottom-0">Light Color Led</span>
+                                        <select name="light" class="nice-select wide border-bottom-0 rounded-0" required>
+
+                                            <option value="ALL WEATHER (WARM WHITE)" <?php if ($row['light'] == 'ALL WEATHER (WARM WHITE)') echo 'selected'; ?>>All Weather (Warm White)</option>
+                                            <option value="CLEAR SKY (COOL WHITE)" <?php if ($row['light'] == 'CLEAR SKY (COOL WHITE)') echo 'selected'; ?>>Clear Sky (Cool White)</option>
                                         </select>
                                     </div>
                                     <div class="selector-wrap pb-55">
-                                        <span class="selector-title">Size</span>
-                                        <select class="nice-select wide rounded-0">
-
-                                            <option value="large">Large Size With Screw</option>
-                                            <option value="small">Small Size With Screw</option>
+                                        <span class="selector-title">Holder Type</span>
+                                        <select name="holder" class="nice-select wide rounded-0"  >                                        
+                                            <option value="H1" <?php if ($row['holder'] == 'H1') echo 'selected'; ?>>H1</option>
+                                            <option value="H4" <?php if ($row['holder'] == 'H4') echo 'selected'; ?>>H4</option>
+                                            <option value="H7" <?php if ($row['holder'] == 'H7') echo 'selected'; ?>>H7</option>
+                                            <option value="H8" <?php if ($row['holder'] == 'H8') echo 'selected'; ?>>H8</option>
+                                            <option value="H11" <?php if ($row['holder'] == 'H11') echo 'selected'; ?>>H11</option>
+                                            <option value="HB3" <?php if ($row['holder'] == 'HB3') echo 'selected'; ?>>HB3</option>
+                                            <option value="HIR2" <?php if ($row['holder'] == 'HIR2') echo 'selected'; ?>>HIR2</option>
+                                            <option value="9005" <?php if ($row['holder'] == '9005') echo 'selected'; ?>>9005</option>
+                                            <option value="9012" <?php if ($row['holder'] == '9012') echo 'selected'; ?>>9012</option>
                                         </select>
                                     </div>
                                     <p class="short-desc mb-9"><?php echo $row['one_line_title'] ?></p>
@@ -176,43 +167,24 @@
                                             </div>
                                         </li>
                                         <li class="add-to-cart">
-                                            <button  class="btn btn-custom-size lg-size btn-primary" name="submit">Add to cart</button>
+                                            <button class="btn btn-custom-size lg-size btn-primary" name="submit">Add to cart</button>
                                         </li>
-                                        <li class="wishlist-btn-wrap">
-                                            <a class="custom-circle-btn" href="wishlist.html">
-                                                <i class="pe-7s-like"></i>
-                                            </a>
-                                        </li>
-                                        <li class="compare-btn-wrap">
-                                            <a class="custom-circle-btn" href="compare.html">
-                                                <i class="pe-7s-refresh-2"></i>
-                                            </a>
-                                        </li>
+
                                     </ul>
                                     <div class="product-category pb-3">
-                                        <span class="title">Weight :</span>
-                                        <ul>
-                                            <li>
-                                                <a href="#"><?php echo $row['weight'] ?></a>
-                                            </li>
-                                        </ul>
+                                        <span class="title">Technology : <i class="text-dark">LED FLIP CHIP</i></span>
+
                                     </div>
                                     <div class="product-category pb-3">
-                                        <span class="title">Dimension :</span>
-                                        <ul>
-                                            <li>
-                                                <a href="#"><?php echo $row['dimension'] ?></a>
-                                            </li>
-                                        </ul>
+                                        <span class="title">Color Temperature : <i class="text-dark">4k All Weather & 6k
+                                                Clear Sky</i></span>
+
                                     </div>
                                     <div class="product-category pb-3">
-                                        <span class="title">Material :</span>
-                                        <ul>
-                                            <li>
-                                                <a href="#"><?php echo $row['material'] ?></a>
-                                            </li>
-                                        </ul>
+                                        <span class="title">Warranty : <i class="text-dark">1 + 1 Year Extendable</i></span>
+
                                     </div>
+
 
                                     <div class="product-category social-link align-items-center pb-lg-8">
                                         <span class="title pe-3">Share:</span>
@@ -243,6 +215,7 @@
                             </div>
                         </div>
                     </div>
+
                 </form>
             </div>
         <?php } ?>
@@ -252,106 +225,291 @@
                     <div class="col-lg-12">
                         <ul class="nav product-tab-nav mb-10" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <a class="tab-btn" id="information-tab" data-bs-toggle="tab" href="#information" role="tab" aria-controls="information" aria-selected="false">
+                                <a class="tab-btn" id="information-tab" data-bs-toggle="tab" href="#information"
+                                    role="tab" aria-controls="information" aria-selected="false">
                                     Information
                                 </a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a class="active tab-btn" id="description-tab" data-bs-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">
-                                    Description
+                                <a class="active tab-btn" id="description-tab" data-bs-toggle="tab"
+                                    href="#description" role="tab" aria-controls="description" aria-selected="true">
+                                    DATA
                                 </a>
                             </li>
 
                         </ul>
-                        <div class="tab-content product-tab-content">
-                            <div class="tab-pane fade" id="information" role="tabpanel" aria-labelledby="information-tab">
-                                <div class="product-information-body">
-                                    <h4 class="title">Shipping</h4>
-                                    <p class="short-desc mb-4">The item will be shipped from China. So it need 15-20 days to deliver. Our product is good with reasonable price and we believe you will worth it. So please wait for it patiently! Thanks.Any question please kindly to contact us and we promise to work hard to help you to solve the problem</p>
-                                    <h4 class="title">About return request</h4>
-                                    <p class="short-desc mb-4">If you don't need the item with worry, you can contact us then we will help you to solve the problem, so please close the return request! Thanks</p>
-                                    <h4 class="title">Guarantee</h4>
-                                    <p class="short-desc mb-0">If it is the quality question, we will resend or refund to you; If you receive damaged or wrong items, please contact us and attach some pictures about product, we will exchange a new correct item to you after the confirmation.</p>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
-                                <div class="product-description-body">
-                                    <p class="short-desc mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sintdjrufoksk occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolorem laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sitdu aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit ametg consectetur, adipisci velit, sed quia non numquam eius modi tempora incidun.</p>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                                <div class="product-review-body">
-                                    <div class="blog-comment">
-                                        <h4 class="heading mb-7">3 Comments</h4>
-                                        <div class="blog-comment-item mb-8">
-                                            <div class="blog-comment-img">
-                                                <img src="assets/images/blog/avatar/3-1-101x101.png" alt="User Image">
-                                            </div>
-                                            <div class="blog-comment-content pb-8">
-                                                <div class="user-meta">
-                                                    <span><strong>Aidyn Cody -</strong> Jul 21,2022 at 15 hours ago</span>
-                                                </div>
-                                                <p class="user-comment mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci labore et dol magna aliqua. Ut enim ad minim veniam quis nostrud</p>
-                                                <a class="btn btn-custom-size comment-btn" href="#">Reply</a>
-                                            </div>
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="tab-content product-tab-content">
+                                    <div class="tab-pane fade" id="information" role="tabpanel"
+                                        aria-labelledby="information-tab">
+                                        <div class="product-information-body">
+                                            <h4 class="title text-danger">Product Information</h4>
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th>Holder Types Available</th>
+                                                    <td>H1, H4, H7, H8, H11, HB3, HIR2, 9005, 9012</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Technology </th>
+                                                    <td>LED FLIP CHIP</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Product Legal Advice</th>
+                                                    <td>Specifically Designed For Indian Right Hand Drive Conditions
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Color Temperature</th>
+                                                    <td>4k All Weather & 6k Clear Sky</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Application</th>
+                                                    <td>High Beam, Low Beam & Fog Lamps</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Waterproof Rating</th>
+                                                    <td>IP 68 - Adapatble For Snow, Rain, Fog & Dust</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Warranty</th>
+                                                    <td>1 + 1 YEAR EXTENDABLE</td>
+                                                </tr>
+                                            </table>
                                         </div>
-                                        <div class="blog-comment-item relpy-item mb-8">
-                                            <div class="blog-comment-img">
-                                                <img src="assets/images/blog/avatar/3-2-101x101.png" alt="User Image">
+                                    </div>
+                                    <div class="tab-pane fade show active" id="description" role="tabpanel"
+                                        aria-labelledby="description-tab">
+                                        <div class="product-description-body">
+                                            <div class="  ">
+                                                <h4 class="title text-danger">Electric Data</h4>
+                                                <table class="table table-bordered my-3">
+                                                    <tr>
+                                                        <th>Power Input</th>
+                                                        <td>70 WATTS</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Operating Voltage </th>
+                                                        <td>13.5V +/- 20%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th> Nominal Wattage</th>
+                                                        <td>62 WATTS</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Nominal Voltage</th>
+                                                        <td>12.0V</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Input Voltage</th>
+                                                        <td>DC9 – 16V</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Working Current</th>
+                                                        <td>5.19A</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            Lifespan Tc</th>
+                                                        <td>30000 HR</td>
+                                                    </tr>
+                                                </table>
                                             </div>
-                                            <div class="blog-comment-content pb-8">
-                                                <div class="user-meta">
-                                                    <span><strong>Aidyn Cody -</strong> Jul 21,2022 at 15 hours ago</span>
-                                                </div>
-                                                <p class="user-comment mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci labore et dol magna aliqua. Ut enim ad minim veniam quis nostrud</p>
-                                                <a class="btn btn-custom-size comment-btn" href="#">Reply</a>
+
+                                            <div class="my-6">
+                                                <h4 class="title text-danger">Physical Attributes & Dimensions</h4>
+                                                <table class="table table-bordered my-3">
+                                                    <tr>
+                                                        <th>Product Weight</th>
+                                                        <td> 50 GRAMS (BULB ONLY)</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Length </th>
+                                                        <td>75MM X 37MM</td>
+
+                                                    </tr>
+
+
+                                                </table>
                                             </div>
-                                        </div>
-                                        <div class="blog-comment-item">
-                                            <div class="blog-comment-img">
-                                                <img src="assets/images/blog/avatar/3-3-101x101.png" alt="User Image">
+                                            <div class="my-6">
+                                                <h4 class="title text-danger">
+
+                                                    Photometric Data</h4>
+                                                <table class="table table-bordered my-3">
+                                                    <tr>
+                                                        <th>Color Temperature</th>
+                                                        <td>4300 KELVIN</td>
+                                                        <td>6500 KELVIN</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Nominal Luminious
+                                                            Flux </th>
+                                                        <td>8400 LUMENS</td>
+                                                        <td>8400 LUMENS</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Light Color Led</th>
+                                                        <td>All Weather (Warm White)</td>
+                                                        <td>Clear Sky (Cool White)</td>
+                                                    </tr>
+
+                                                </table>
                                             </div>
-                                            <div class="blog-comment-content">
-                                                <div class="user-meta">
-                                                    <span><strong>Aidyn Cody -</strong> Jul 21,2022 at 15 hours ago</span>
-                                                </div>
-                                                <p class="user-comment mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci labore et dol magna aliqua. Ut enim ad minim veniam quis nostrud</p>
-                                                <a class="btn btn-custom-size comment-btn" href="#">Reply</a>
+                                            <div class="my-6">
+                                                <h4 class="title text-danger">Logistic Data</h4>
+                                                <table class="table table-bordered my-3">
+                                                    <tr>
+                                                        <th rowspan="3"> Korbi Box Unit With 1 <br>
+                                                            Pair Led Bulbs, Fitting <br>
+                                                            Tool, Zip Ties & <br>
+                                                            Warranty Card
+                                                        </th>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td> Dimensions</td>
+                                                        <td>Packed Box Weight</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td> 230MM X 145MM X 80MM</td>
+                                                        <td> 0.55KG (550 GRAMS)</td>
+
+                                                    </tr>
+
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="feedback-area pt-10">
-                                        <h2 class="heading mb-3">Add a review</h2>
-                                        <p class="short-desc mb-3">Your email address will not be published.</p>
-                                        <div class="rating-box">
-                                            <span>Your rating</span>
-                                            <ul class="ps-4">
-                                                <li><i class="fa fa-star" data-tippy="1 star" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder"></i></li>
-                                                <li><i class="fa fa-star" data-tippy="2 star" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder"></i></li>
-                                                <li><i class="fa fa-star" data-tippy="3 star" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder"></i></li>
-                                                <li><i class="fa fa-star" data-tippy="4 star" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder"></i></li>
-                                                <li><i class="fa fa-star" data-tippy="5 star" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder"></i></li>
-                                            </ul>
+                                    <div class="tab-pane fade" id="reviews" role="tabpanel"
+                                        aria-labelledby="reviews-tab">
+                                        <div class="product-review-body">
+                                            <div class="blog-comment">
+                                                <h4 class="heading mb-7">3 Comments</h4>
+                                                <div class="blog-comment-item mb-8">
+                                                    <div class="blog-comment-img">
+                                                        <img src="assets/images/blog/avatar/3-1-101x101.png"
+                                                            alt="User Image">
+                                                    </div>
+                                                    <div class="blog-comment-content pb-8">
+                                                        <div class="user-meta">
+                                                            <span><strong>Aidyn Cody -</strong> Jul 21,2022 at 15
+                                                                hours
+                                                                ago</span>
+                                                        </div>
+                                                        <p class="user-comment mb-4">Lorem ipsum dolor sit amet,
+                                                            consectetur
+                                                            adipisicing elit, sed do eiusmod tempor inci labore et
+                                                            dol magna
+                                                            aliqua. Ut enim ad minim veniam quis nostrud</p>
+                                                        <a class="btn btn-custom-size comment-btn"
+                                                            href="#">Reply</a>
+                                                    </div>
+                                                </div>
+                                                <div class="blog-comment-item relpy-item mb-8">
+                                                    <div class="blog-comment-img">
+                                                        <img src="assets/images/blog/avatar/3-2-101x101.png"
+                                                            alt="User Image">
+                                                    </div>
+                                                    <div class="blog-comment-content pb-8">
+                                                        <div class="user-meta">
+                                                            <span><strong>Aidyn Cody -</strong> Jul 21,2022 at 15
+                                                                hours
+                                                                ago</span>
+                                                        </div>
+                                                        <p class="user-comment mb-4">Lorem ipsum dolor sit amet,
+                                                            consectetur
+                                                            adipisicing elit, sed do eiusmod tempor inci labore et
+                                                            dol magna
+                                                            aliqua. Ut enim ad minim veniam quis nostrud</p>
+                                                        <a class="btn btn-custom-size comment-btn"
+                                                            href="#">Reply</a>
+                                                    </div>
+                                                </div>
+                                                <div class="blog-comment-item">
+                                                    <div class="blog-comment-img">
+                                                        <img src="assets/images/blog/avatar/3-3-101x101.png"
+                                                            alt="User Image">
+                                                    </div>
+                                                    <div class="blog-comment-content">
+                                                        <div class="user-meta">
+                                                            <span><strong>Aidyn Cody -</strong> Jul 21,2022 at 15
+                                                                hours
+                                                                ago</span>
+                                                        </div>
+                                                        <p class="user-comment mb-4">Lorem ipsum dolor sit amet,
+                                                            consectetur
+                                                            adipisicing elit, sed do eiusmod tempor inci labore et
+                                                            dol magna
+                                                            aliqua. Ut enim ad minim veniam quis nostrud</p>
+                                                        <a class="btn btn-custom-size comment-btn"
+                                                            href="#">Reply</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="feedback-area pt-10">
+                                                <h2 class="heading mb-3">Add a review</h2>
+                                                <p class="short-desc mb-3">Your email address will not be published.
+                                                </p>
+                                                <div class="rating-box">
+                                                    <span>Your rating</span>
+                                                    <ul class="ps-4">
+                                                        <li><i class="fa fa-star" data-tippy="1 star"
+                                                                data-tippy-inertia="true"
+                                                                data-tippy-animation="shift-away"
+                                                                data-tippy-delay="50" data-tippy-arrow="true"
+                                                                data-tippy-theme="sharpborder"></i></li>
+                                                        <li><i class="fa fa-star" data-tippy="2 star"
+                                                                data-tippy-inertia="true"
+                                                                data-tippy-animation="shift-away"
+                                                                data-tippy-delay="50" data-tippy-arrow="true"
+                                                                data-tippy-theme="sharpborder"></i></li>
+                                                        <li><i class="fa fa-star" data-tippy="3 star"
+                                                                data-tippy-inertia="true"
+                                                                data-tippy-animation="shift-away"
+                                                                data-tippy-delay="50" data-tippy-arrow="true"
+                                                                data-tippy-theme="sharpborder"></i></li>
+                                                        <li><i class="fa fa-star" data-tippy="4 star"
+                                                                data-tippy-inertia="true"
+                                                                data-tippy-animation="shift-away"
+                                                                data-tippy-delay="50" data-tippy-arrow="true"
+                                                                data-tippy-theme="sharpborder"></i></li>
+                                                        <li><i class="fa fa-star" data-tippy="5 star"
+                                                                data-tippy-inertia="true"
+                                                                data-tippy-animation="shift-away"
+                                                                data-tippy-delay="50" data-tippy-arrow="true"
+                                                                data-tippy-theme="sharpborder"></i></li>
+                                                    </ul>
+                                                </div>
+                                                <form class="feedback-form pt-8" action="#">
+                                                    <div class="group-input">
+                                                        <div class="form-field me-md-6 mb-6 mb-md-0">
+                                                            <input type="text" name="name" placeholder="Your Name*"
+                                                                class="input-field">
+                                                        </div>
+                                                        <div class="form-field me-md-6 mb-6 mb-md-0">
+                                                            <input type="text" name="email"
+                                                                placeholder="Your Email*" class="input-field">
+                                                        </div>
+                                                        <div class="form-field">
+                                                            <input type="text" name="number"
+                                                                placeholder="Phone number" class="input-field">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-field mt-6">
+                                                        <textarea name="message" placeholder="Message"
+                                                            class="textarea-field"></textarea>
+                                                    </div>
+                                                    <div class="button-wrap mt-8">
+                                                        <button type="submit" value="submit"
+                                                            class="btn btn-custom-size lg-size btn-primary"
+                                                            name="submit">Submit</button>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
-                                        <form class="feedback-form pt-8" action="#">
-                                            <div class="group-input">
-                                                <div class="form-field me-md-6 mb-6 mb-md-0">
-                                                    <input type="text" name="name" placeholder="Your Name*" class="input-field">
-                                                </div>
-                                                <div class="form-field me-md-6 mb-6 mb-md-0">
-                                                    <input type="text" name="email" placeholder="Your Email*" class="input-field">
-                                                </div>
-                                                <div class="form-field">
-                                                    <input type="text" name="number" placeholder="Phone number" class="input-field">
-                                                </div>
-                                            </div>
-                                            <div class="form-field mt-6">
-                                                <textarea name="message" placeholder="Message" class="textarea-field"></textarea>
-                                            </div>
-                                            <div class="button-wrap mt-8">
-                                                <button type="submit" value="submit" class="btn btn-custom-size lg-size btn-primary" name="submit">Submit</button>
-                                            </div>
-                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -360,200 +518,7 @@
                 </div>
             </div>
         </div>
-        <div class="background-img" data-bg-image="assets/images/background-img/1-2-1920x716.jpg">
-            <div class="product-area product-arrow section-space-y-axis-100">
-                <div class="container">
-                    <div class="section-title pb-55">
-                        <h2 class="title mb-0">Related Products</h2>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="swiper-container product-slider">
-                                <div class="swiper-wrapper text-heading">
-                                    <div class="swiper-slide">
-                                        <div class="product-item">
-                                            <div class="product-img img-zoom-effect">
-                                                <a href="shop.html">
-                                                    <img class="img-full" src="assets/images/product/medium-size/product-slider/1-1-290x350.jpg" alt="Product Images">
-                                                </a>
-                                            </div>
-                                            <div class="product-content">
-                                                <a class="product-name pb-1" href="shop.html">Auto Clutch & Brake</a>
-                                                <div class="price-box">
-                                                    <div class="price-box-holder">
-                                                        <span>Price:</span>
-                                                        <span class="new-price text-primary">$120.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="product-add-action">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="cart.html" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-cart"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                            <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-look"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="wishlist.html" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-like"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="compare.html" data-tippy="Add to compare" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-shuffle"></i>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="product-item">
-                                            <div class="product-img img-zoom-effect">
-                                                <a href="shop.html">
-                                                    <img class="img-full" src="assets/images/product/medium-size/product-slider/1-2-290x350.jpg" alt="Product Images">
-                                                </a>
-                                            </div>
-                                            <div class="product-content">
-                                                <a class="product-name pb-1" href="shop.html">Fuel Injector</a>
-                                                <div class="price-box">
-                                                    <div class="price-box-holder">
-                                                        <span>Price:</span>
-                                                        <span class="new-price text-primary">$130.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="product-add-action">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="cart.html" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-cart"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                            <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-look"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="wishlist.html" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-like"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="compare.html" data-tippy="Add to compare" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-shuffle"></i>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="product-item">
-                                            <div class="product-img img-zoom-effect">
-                                                <a href="shop.html">
-                                                    <img class="img-full" src="assets/images/product/medium-size/product-slider/1-3-290x350.jpg" alt="Product Images">
-                                                </a>
-                                            </div>
-                                            <div class="product-content">
-                                                <a class="product-name pb-1" href="shop.html">A/C Compressor</a>
-                                                <div class="price-box">
-                                                    <div class="price-box-holder">
-                                                        <span>Price:</span>
-                                                        <span class="new-price text-primary">$150.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="product-add-action">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="cart.html" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-cart"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                            <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-look"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="wishlist.html" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-like"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="compare.html" data-tippy="Add to compare" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-shuffle"></i>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="product-item">
-                                            <div class="product-img img-zoom-effect">
-                                                <a href="shop.html">
-                                                    <img class="img-full" src="assets/images/product/medium-size/product-slider/1-4-290x350.jpg" alt="Product Images">
-                                                </a>
-                                            </div>
-                                            <div class="product-content">
-                                                <a class="product-name pb-1" href="shop.html">Shock Absorbers</a>
-                                                <div class="price-box">
-                                                    <div class="price-box-holder">
-                                                        <span>Price:</span>
-                                                        <span class="new-price text-primary">$180.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="product-add-action">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="cart.html" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-cart"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="quuickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal">
-                                                            <a href="#" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-look"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="wishlist.html" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-like"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="compare.html" data-tippy="Add to compare" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
-                                                                <i class="pe-7s-shuffle"></i>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Add Arrows -->
-                            <div class="product-button-wrap pt-10">
-                                <div class="product-button-prev">
-                                    <i class="pe-7s-angle-left"></i>
-                                </div>
-                                <div class="product-button-next">
-                                    <i class="pe-7s-angle-right"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </main>
     <!-- Main Content Area End Here  -->
     <?php

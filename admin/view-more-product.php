@@ -55,7 +55,7 @@ if(isset($_GET['d_id']))
                   
                   <tr>
                     <th>Product ID</th>
-                    <td><?php echo $row['id']; ?></td>
+                    <td>#<?php echo $row['id']; ?></td>
                   </tr>
                   <tr>
                     <th>Stock</th>
@@ -67,48 +67,9 @@ if(isset($_GET['d_id']))
                   </tr>
                   <tr>
                     <th>Price of Product</th>
-                    <td><?php echo $row['price']; ?></td>
+                    <td>₹ <b><?php echo $row['price']; ?></b></td>
                   </tr>
-                  <tr>
-                    <th>Category of Product</th>
-                    <td><?php echo $row['category']; ?></td>
-                  </tr>
-                  <tr>
-                    <th>Tag/Offer of Product</th>
-                    <td><?php echo $row['tag']; ?></td>
-                  </tr>
-                  <tr>
-                    <th>Type of Product</th>
-                    <td><?php echo $row['type']; ?></td>
-                  </tr>
-                  <tr>
-                    <th>Sizes of Product</th>
-                    <td><?php echo $row['size']; ?></td>
-                  </tr>
-                  <tr>
-                    <th>Colors of Product</th>
-                    <td><?php echo $row['color']; ?></td>
-                  </tr>
-                  <tr>
-                    <th>Weight of Product</th>
-                    <td><?php echo $row['weight']; ?></td>
-                  </tr>
-                  <tr>
-                    <th>Dimentions of Product</th>
-                    <td><?php echo $row['dimension']; ?></td>
-                  </tr>
-                  <tr>
-                    <th>Material Type of Product</th>
-                    <td><?php echo $row['material']; ?></td>
-                  </tr>
-                  <tr>
-                    <th>One line Title of Product</th>
-                    <td><?php echo $row['one_line_title']; ?></td>
-                  </tr>
-                  <tr>
-                    <th>Description of Product</th>
-                    <td><?php echo $row['description']; ?></td>
-                  </tr>
+                   
                   <tr>
                     <th>Image-1 (Main)</th>
                     <td align="center">
@@ -132,7 +93,7 @@ if(isset($_GET['d_id']))
 
                   <a href="edit-product.php?e_id=<?php echo $row['id']; ?>" class="btn btn-primary">Edit Product Details</a>
                   <br>
-                  <a href="view-product.php?d_id=<?php echo $row['id']; ?>" class="btn btn-primary">Delete Product</a>
+                  <a href="delete-product.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Delete Product</a>
                    <br>
                   <a href="view-product.php" class="btn btn-primary">Back to List of Products</a>
  

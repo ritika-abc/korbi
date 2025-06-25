@@ -297,6 +297,12 @@
         <a href=""><img src="wp.png" alt=""></a>
     </span>
     <!-- Vendor JS -->
+      <script>
+   function onSubmit(token) {
+     document.getElementById("demo-form").submit();
+   }
+ </script>
+      <script src="https://www.google.com/recaptcha/api.js"></script>
     <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
     <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
     <script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>

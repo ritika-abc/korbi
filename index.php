@@ -11,7 +11,7 @@
         content="Korbi">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="image/logo/korbi.png" />
 
     <!-- CSS
     ============================================ -->
@@ -60,7 +60,7 @@
 
                                 <ul class="quantity-with-btn pb-7">
                                     <li class="affiliate-btn-wrap">
-                                        <a class="btn btn-custom-size lg-size mt-3 btn-primary" href="product">Buy Now</a>
+                                        <a class="btn btn-custom-size lg-size mt-3 btn-primary" href="product.php">Buy Now</a>
                                     </li>
                                 </ul>
                             </div>

@@ -23,16 +23,10 @@ if (isset($_POST['edited_product']))
 {
     $name = $_POST['name'];
     $price = $_POST['price'];
-    $category = $_POST['category'];
-    $tag = implode(', ',$_POST['tag']);
-    $type = $_POST['type'];
-    $size = implode(', ',$_POST['size']);
-    $color = implode(', ',$_POST['color']);
+ 
     $one_line_title = $_POST['one_line_title'];
-    $description = $_POST['description'];
-    $weight = $_POST['weight'];
-    $dimension = $_POST['dimension'];
-    $material = $_POST['material'];
+ 
+    
     $stock = $_POST['stock'];
 
     $image1_e = $_FILES['image1']['name'];
@@ -78,7 +72,7 @@ if (isset($_POST['edited_product']))
     }
 
 
-    $sql_update = "update `product` set `name`='$name',`price`='$price',`category`='$category',`tag`='$tag',`type`='$type',`one_line_title`='$one_line_title',`size`='$size',`color`='$color',`description`='$description',`weight`='$weight',`dimension`='$dimension',`material`='$material',`image1`='$image1',`image2`='$image2',`image3`='$image3',`stock`='$stock' where `id`='$edit_id'";
+    $sql_update = "update `product` set `name`='$name',`price`='$price',`one_line_title`='$one_line_title',`image1`='$image1',`image2`='$image2',`image3`='$image3',`stock`='$stock' where `id`='$edit_id'";
     mysqli_query($conn,$sql_update);
 
     $sql_update_cart = "update `cart` set `name`='$name',`price`='$price',`image`='$image1' where `product_id`='$edit_id'";
@@ -144,202 +138,19 @@ if (isset($_POST['edited_product']))
                     <input type="text" class="form-control" id="exampleInputPassword1" maxlength="50" placeholder="Enter Some Details of New Photo" name="price" maxlength="50" required value="<?php echo @$row['price']; ?>">
                   </div>
 
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Category of Product</label>
-                    <select class="form-control" name="category" required>
-                      <option selected disabled>-Select Category of Product-</option>
-                      <option <?php if($row['category']=="Women"){echo "selected";} ?>>Women</option>
-                      <option <?php if($row['category']=="Men"){echo "selected";} ?>>Men</option>
-                      <option <?php if($row['category']=="Accessories"){echo "selected";} ?>>Accessories</option>
-                    </select>
-                  </div>
+                  
 
-                  <div class="form-group">
-                    <label for="exampleInputFile">Tag of Product (As per the offer)</label>
-                      <div>
-                        <input type="checkbox" name="tag[]" value="Best-seller" 
-                        <?php 
-                        for($i=0; $i<$tag_length; $i++)
-                          { 
-                            if($tag[$i]=="Best-seller")
-                              {echo "checked";}
-                          } 
-                        ?>> Best-seller <br>
-                        <input type="checkbox" name="tag[]" value="Featured"
-                        <?php 
-                        for($i=0; $i<$tag_length; $i++)
-                          { 
-                            if($tag[$i]=="Featured")
-                              {echo "checked";}
-                          } 
-                        ?>> Featured <br>
-                        <input type="checkbox" name="tag[]" value="Sale"
-                        <?php 
-                        for($i=0; $i<$tag_length; $i++)
-                          { 
-                            if($tag[$i]=="Sale")
-                              {echo "checked";}
-                          } 
-                        ?>> Sale <br>
-                        <input type="checkbox" name="tag[]" value="Top-rate"
-                        <?php 
-                        for($i=0; $i<$tag_length; $i++)
-                          { 
-                            if($tag[$i]=="Top-rate")
-                              {echo "checked";}
-                          } 
-                        ?>> Top-rate <br>
-                     </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Type of Product</label>
-                    <select class="form-control" name="type" required>
-                      <option selected disabled>-Select Type of Product-</option>
-                      <option <?php if($row['type']=="Shirt"){echo "selected";} ?>>Shirt</option>
-                      <option <?php if($row['type']=="T-shirt"){echo "selected";} ?>>T-shirt</option>
-                      <option <?php if($row['type']=="Jeans"){echo "selected";} ?>>Jeans</option>
-                      <option <?php if($row['type']=="Cotton-pent"){echo "selected";} ?>>Cotton-pent</option>
-                      <option <?php if($row['type']=="Top"){echo "selected";} ?>>Top</option>
-                      <option <?php if($row['type']=="Kurti"){echo "selected";} ?>>Kurti</option>
-                      <option <?php if($row['type']=="Sarwar"){echo "selected";} ?>>Sarwar</option>
-                      <option <?php if($row['type']=="Capri"){echo "selected";} ?>>Capri</option>
-                      <option <?php if($row['type']=="Belt"){echo "selected";} ?>>Belt</option>
-                      <option <?php if($row['type']=="Gogles"){echo "selected";} ?>>Gogles</option>
-                      <option <?php if($row['type']=="Purse"){echo "selected";} ?>>Purse</option>
-                      <option <?php if($row['type']=="Cap"){echo "selected";} ?>>Cap</option>
-                      <option <?php if($row['type']=="Shoes"){echo "selected";} ?>>Shoes</option>
-                      <option <?php if($row['type']=="Socks"){echo "selected";} ?>>Socks</option>
-                      <option <?php if($row['type']=="Watch"){echo "selected";} ?>>Watch</option>
-                      <option <?php if($row['type']=="Bag"){echo "selected";} ?>>Bag</option>
-                    </select>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="exampleInputFile">Select Avilable Size of Product</label>
-                      <div>
-                        <input type="checkbox" name="size[]" value="S - Small"
-                        <?php 
-                        for($i=0; $i<$size_length; $i++)
-                          { 
-                            if($size[$i]=="S - Small")
-                              {echo "checked";}
-                          } 
-                        ?>> S - Small <br>
-                        <input type="checkbox" name="size[]" value="M - Medium"
-                        <?php 
-                        for($i=0; $i<$size_length; $i++)
-                          { 
-                            if($size[$i]=="M - Medium")
-                              {echo "checked";}
-                          } 
-                        ?>> M - Medium <br>
-                        <input type="checkbox" name="size[]" value="L - Large"
-                        <?php 
-                        for($i=0; $i<$size_length; $i++)
-                          { 
-                            if($size[$i]=="L - Large")
-                              {echo "checked";}
-                          } 
-                        ?>> L - Large <br>
-                        <input type="checkbox" name="size[]" value="XL - Extra Large"
-                        <?php 
-                        for($i=0; $i<$size_length; $i++)
-                          { 
-                            if($size[$i]=="XL - Extra Large")
-                              {echo "checked";}
-                          } 
-                        ?>> XL - Extra Large <br>
-                        <input type="checkbox" name="size[]" value="XXL - Extra Extra Large"
-                        <?php 
-                        for($i=0; $i<$size_length; $i++)
-                          { 
-                            if($size[$i]=="XXL - Extra Extra Large")
-                              {echo "checked";}
-                          } 
-                        ?>> XXL - Extra Extra Large <br>
-                     </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="exampleInputFile">Select Available Color of Product</label>
-                      <div>
-                        <input type="checkbox" name="color[]" value="Black"
-                        <?php 
-                        for($i=0; $i<$color_length; $i++)
-                          { 
-                            if($color[$i]=="Black")
-                              {echo "checked";}
-                          } 
-                        ?>> Black <br>
-                        <input type="checkbox" name="color[]" value="Blue"
-                        <?php 
-                        for($i=0; $i<$color_length; $i++)
-                          { 
-                            if($color[$i]=="Blue")
-                              {echo "checked";}
-                          } 
-                        ?>> Blue <br>
-                        <input type="checkbox" name="color[]" value="Gray"
-                        <?php 
-                        for($i=0; $i<$color_length; $i++)
-                          { 
-                            if($color[$i]=="Gray")
-                              {echo "checked";}
-                          } 
-                        ?>> Gray <br>
-                        <input type="checkbox" name="color[]" value="Green"
-                        <?php 
-                        for($i=0; $i<$color_length; $i++)
-                          { 
-                            if($color[$i]=="Green")
-                              {echo "checked";}
-                          } 
-                        ?>> Green <br>
-                        <input type="checkbox" name="color[]" value="Red"
-                        <?php 
-                        for($i=0; $i<$color_length; $i++)
-                          { 
-                            if($color[$i]=="Red")
-                              {echo "checked";}
-                          } 
-                        ?>> Red <br>
-                        <input type="checkbox" name="color[]" value="White"
-                        <?php 
-                        for($i=0; $i<$color_length; $i++)
-                          { 
-                            if($color[$i]=="White")
-                              {echo "checked";}
-                          } 
-                        ?>> White <br>
-                     </div>
-                  </div>
+                 
+ 
+ 
+ 
 
                   <div class="form-group">
                     <label for="exampleInputPassword1">One Line Title of Product</label>
                     <textarea type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter One Line Title of Product" name="one_line_title" maxlength="100" required><?php echo $row['one_line_title']; ?></textarea>
                   </div>
 
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Description of Product</label>
-                    <textarea rows="10" type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Description of Product" name="description" maxlength="500" required><?php echo $row['description']; ?></textarea>
-                  </div>
-
-                   <div class="form-group">
-                    <label for="exampleInputPassword1">Weight of Product (in KG)</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Weight of Product" name="weight" maxlength="10" required value="<?php echo $row['weight']; ?>">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Dimensions of Product (in CM)</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Dimensions of Product" name="dimension" maxlength="20" required value="<?php echo $row['dimension']; ?>">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Type of Material used in Product</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter type of materail used in product" name="material" maxlength="50" required value="<?php echo $row['material']; ?>">
-                  </div>
-
+                   
                   <div class="form-group">
                     <label for="exampleInputFile">Image 1 (Main Image)</label>
                     <div class="input-group">
@@ -368,7 +179,7 @@ if (isset($_POST['edited_product']))
                             <img src="image/<?php echo $row['image2']; ?>" style="height: 100%; width: 100%; object-fit: cover; object-position: top;">
                         </div>
                   <br>
-
+<!-- this is an error page -->
                   <div class="form-group">
                     <label for="exampleInputFile">Image 3</label>
                     <div class="input-group">
@@ -419,3 +230,10 @@ if (isset($_POST['edited_product']))
 <!-- ./wrapper -->
 
 <?php include_once 'scripts.php'; ?>
+ 
+<!-- 
+   
+
+
+
+-->

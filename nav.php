@@ -32,26 +32,8 @@ if (isset($_SESSION["email"])) {
     <header class="main-header-area">
         <div class="header-top border-bottom d-none d-lg-block">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-6">
-                        <div class="header-top-left">
-                            <ul class="dropdown-wrap text-matterhorn">
+                <div class="row align-items-center py-3">
 
-                                <li class="dropdown">
-                                    <button class="btn btn-link dropdown-toggle ht-btn" type="button"
-                                        id="currencyButton" data-bs-toggle="dropdown" aria-label="currency"
-                                        aria-expanded="false">
-                                        USD
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="currencyButton">
-                                        <li><a class="dropdown-item" href="#">GBP</a></li>
-                                        <li><a class="dropdown-item" href="#">ISO</a></li>
-                                    </ul>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
                     <div class="col-6">
                         <div class="header-top-right text-matterhorn">
                             <p class="shipping mb-0"><small>KORBI: The Light Samurai—Mastering the art of
@@ -171,21 +153,20 @@ if (isset($_SESSION["email"])) {
                                                 </li>
                                             </ul>
                                         </li> -->
+
                                         <li class="drop-holder">
-                                            <a href="about.php">About Us
+                                            <a href="product.php">Our Products
                                             </a>
                                         </li>
                                         <li class="drop-holder">
-                                            <a href="shop.php">Our Products
+                                            <a href="contact.php">Contact Us
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="contact.php">Contact</a>
-                                        </li>
+
                                         <li style="    align-self: center;">
                                             <ul class="quantity-with-btn  ">
                                                 <li class="affiliate-btn-wrap">
-                                                    <a class="btn btn-custom-size lg-size text-white btn-primary" href="product.php">Buy
+                                                    <a class="btn btn-custom-size lg-size text-white btn-primary" href="checkout.php">Buy
                                                         Now</a>
                                                 </li>
                                             </ul>
@@ -203,9 +184,10 @@ if (isset($_SESSION["email"])) {
                                         </button>
                                         <ul class="dropdown-menu right-side" aria-labelledby="settingButton">
                                             <li><a class="dropdown-item text-capitalize" href="#"><?php echo $name ?></a></li>
-                                            <li><a class="dropdown-item" href="my-account.html">My account</a></li>
+                                            <li><a class="dropdown-item" href="my-account.php">My account</a></li>
+                                            <li><a class="dropdown-item" href="shoping-cart.php">My Cart</a></li>
                                             <li><a class="dropdown-item" href="login.php">Login |
-                                                    Register</a></li>
+                                                    Register</a> </li>
                                             <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                                         </ul>
                                     </li>
@@ -890,14 +872,22 @@ if (isset($_SESSION["email"])) {
         </div>
         <div class="offcanvas-body">
             <ul class="navbar-nav">
-                <li class="nav-item"><a href="" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="product.php" class="nav-link">Our Products</a></li>
+                <li class="nav-item"><a href="contact.php" class="nav-link">Contact Us</a></li>
+
 
             </ul>
+            <div class="dropdown"  style="display:inline-block" >
+                <button class="btn btn-secondary dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown button
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div>
             <ul>
                 <li class="dropdown  ">
                     <button class="btn btn-link dropdown-toggle   p-0" type="button"
